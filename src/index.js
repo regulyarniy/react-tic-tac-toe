@@ -25,11 +25,11 @@ function Row(props) {
 
 class Board extends React.Component {
 
-    renderSquare(i) {
+    renderSquare(i, row, col) {
         return <Square
             key={i}
             value={this.props.squares[i]}
-            onClick={() => this.props.onClick(i)}
+            onClick={() => this.props.onClick(i, row, col)}
         />;
     }
 
@@ -47,7 +47,7 @@ class Board extends React.Component {
         for (let i = 0; i < ROW_COUNT; i++) {
             const squares = [];
             for (let j = i*ROW_COUNT; j < i*ROW_COUNT+COLUMN_COUNT; j++) {
-                squares.push(this.renderSquare(j));
+                squares.push(this.renderSquare(j, i + 1, squares.length + 1));
             }
             rows.push(this.renderRow(i,squares));
         }
@@ -78,7 +78,7 @@ class Game extends React.Component {
         })
     }
 
-    handleClick(i) {
+    handleClick(i, row, col) {
         const history = this.state.history.slice(0, this.state.stepNumber + 1);
         const current = history[this.state.stepNumber];
         const squares = current.squares.slice();
@@ -87,7 +87,7 @@ class Game extends React.Component {
         }
         squares[i] = this.state.xIsNext ? `X` : `O`;
         this.setState({
-            history: history.concat([{squares}]),
+            history: history.concat([{squares, row, col}]),
             stepNumber: history.length,
             xIsNext: !this.state.xIsNext,
         });
@@ -102,7 +102,7 @@ class Game extends React.Component {
             `Next player: ${this.state.xIsNext ? `X` : `O`}`;
         const moves = history.map((moveState, moveIndex) => {
             const desc = moveIndex ?
-                `Go to move #${moveIndex}` :
+                `Go to move #${moveIndex} (col:${moveState.col},row:${moveState.row})` :
                 `Go to game start`;
             return (
                 <li key={moveIndex}>
@@ -116,7 +116,7 @@ class Game extends React.Component {
                 <div className="game-board">
                     <Board
                         squares={current.squares}
-                        onClick={(i) => this.handleClick(i)}
+                        onClick={(i, row, col) => this.handleClick(i, row ,col)}
                     />
                 </div>
                 <div className="game-info">

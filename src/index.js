@@ -5,5 +5,5 @@ import './index.css';
 
 ReactDOM.render(
   <Game />,
-  document.getElementById('root'),
+  document.getElementById(`root`),
 );

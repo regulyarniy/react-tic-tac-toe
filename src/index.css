@@ -7,6 +7,14 @@ ol, ul {
     padding-left: 30px;
 }
 
+li.current {
+  font-weight: 700;
+}
+
+li.current button {
+  font-weight: 700;
+}
+
 .board-row:after {
     clear: both;
     content: "";

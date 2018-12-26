@@ -6,6 +6,7 @@
     "mocha": true
   },
   "rules": {
+    "quotes": ["error", "backtick", { "avoidEscape": true }],
     "react/jsx-filename-extension": [
       1,
       {

@@ -68,8 +68,9 @@ export default class Game extends React.Component {
         ? `Go to move #${moveIndex} (col:${moveState.col},row:${moveState.row})`
         : `Go to game start`;
       const isCurrent = moveIndex === stepNumber;
+      const moveClass = isCurrent ? `current` : ``;
       return (
-        <li className={isCurrent && `current`} key={moveState.squares.join(``)}>
+        <li className={moveClass} key={moveState.squares.join(``)}>
           <button type="button" onClick={() => this.jumpTo(moveIndex)}>{desc}</button>
         </li>
       );

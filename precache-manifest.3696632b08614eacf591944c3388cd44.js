@@ -4,19 +4,19 @@ self.__precacheManifest = [
     "url": "https://regulyarniy.github.io/react-tic-tac-toe/static/js/runtime~main.1e225365.js"
   },
   {
-    "revision": "7bc45c3b8fcb5f5e434e",
-    "url": "https://regulyarniy.github.io/react-tic-tac-toe/static/js/main.7bc45c3b.chunk.js"
+    "revision": "63b827b5f5266f7cf033",
+    "url": "https://regulyarniy.github.io/react-tic-tac-toe/static/js/main.63b827b5.chunk.js"
   },
   {
     "revision": "abd9e857442f04b96f9b",
     "url": "https://regulyarniy.github.io/react-tic-tac-toe/static/js/1.abd9e857.chunk.js"
   },
   {
-    "revision": "7bc45c3b8fcb5f5e434e",
-    "url": "https://regulyarniy.github.io/react-tic-tac-toe/static/css/main.6672f3e3.chunk.css"
+    "revision": "63b827b5f5266f7cf033",
+    "url": "https://regulyarniy.github.io/react-tic-tac-toe/static/css/main.1e5089af.chunk.css"
   },
   {
-    "revision": "314a1e26b70b0c20565ef407490e60e2",
+    "revision": "7d63b1475cf392fa8284a5652681e7a6",
     "url": "https://regulyarniy.github.io/react-tic-tac-toe/index.html"
   }
 ];

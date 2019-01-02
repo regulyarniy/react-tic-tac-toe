@@ -40,6 +40,10 @@ li.current button {
     width: 34px;
 }
 
+.square--win {
+  background-color: darkorchid;
+}
+
 .square:focus {
     outline: none;
 }

@@ -15,7 +15,7 @@ const calculateWinner = (squares) => {
   for (let i = 0; i < lines.length; i += 1) {
     const [a, b, c] = lines[i];
     if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-      return squares[a];
+      return lines[i];
     }
   }
   return null;
@@ -77,8 +77,11 @@ export default class Game extends React.Component {
     const current = history[stepNumber];
     const winner = calculateWinner(current.squares);
     const status = winner
-      ? `Winner ${winner} `
+      ? `Winner ${current.squares[winner[0]]} `
       : `Next player: ${xIsNext ? `X` : `O`} `;
+    const newSquares = winner
+      ? current.squares.map((square, index) => (winner.some(indexOfWinner => index === indexOfWinner) ? `${square}W` : square))
+      : current.squares;
     const moves = history.map((moveState, moveIndex) => {
       const desc = moveIndex
         ? `Go to move #${moveIndex} (col:${moveState.col},row:${moveState.row})`
@@ -99,7 +102,7 @@ export default class Game extends React.Component {
       <div className="game">
         <div className="game-board">
           <Board
-            squares={current.squares}
+            squares={newSquares}
             onClick={(i, row, col) => this.handleClick(i, row, col)}
           />
         </div>

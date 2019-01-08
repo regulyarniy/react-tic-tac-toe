@@ -77,8 +77,8 @@ export default class Game extends React.Component {
     const current = history[stepNumber];
     const winner = calculateWinner(current.squares);
     const status = winner
-      ? `Winner ${current.squares[winner[0]]} `
-      : `Next player: ${xIsNext ? `X` : `O`} `;
+      ? `Winner: ${current.squares[winner[0]]} `
+      : `${stepNumber === 9 ? `Draw` : `Next player: ${xIsNext ? `X` : `O`}`} `;
     const newSquares = winner
       ? current.squares.map((square, index) => (winner.some(indexOfWinner => index === indexOfWinner) ? `${square}W` : square))
       : current.squares;
